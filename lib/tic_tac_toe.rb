@@ -2,7 +2,7 @@ class TicTacToe
     attr_accessor :board, :index
 
     def initialize
-        @board = [" ", " ", " ", " ", " ", " ", " ", " ". " "]
+        @board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
     end
 
     WIN_COMBINATIONS = [
@@ -54,11 +54,11 @@ class TicTacToe
       def valid_move?(index)
         #this first if statement is checking if the index is on the board and if the position has been taken
         if index.between?(0,8) && position_taken?(index) == false
-          p true
+          return true
         elsif index > 9 || index < 0
-          p false
+          return false
         elsif position_taken?(index) == true
-          p false
+          return false
         end
       end
     
@@ -73,7 +73,7 @@ class TicTacToe
     
       #tells you whose turn it is
       def current_player
-        turn_count % 2 === 0 ? p "X" : p "O"
+        turn_count % 2 == 0 ? (p "X") : (p "O")
       end
     
       def turn
